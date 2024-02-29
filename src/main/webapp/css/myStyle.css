@@ -1,0 +1,12 @@
+@charset "ISO-8859-1";
+
+body {
+	
+}
+.post-content{
+	font-weight:100;
+	font-size:30px;
+}
+.primary-background {
+	background: #42a5f5 !important;
+}
