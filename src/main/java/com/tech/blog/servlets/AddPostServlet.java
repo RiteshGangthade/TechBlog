@@ -44,12 +44,12 @@ public class AddPostServlet extends HttpServlet {
 
 		String pContent=request.getParameter("pContent");
 		String pCode=request.getParameter("Pcode");
-		Part part=request.getPart("image");
+		//Part part=request.getPart("image");
 		HttpSession session=request.getSession();
 		user us=(user)session.getAttribute("currentUser");
 		PrintWriter out=response.getWriter();
 		
-		Posts p=new Posts(pTitle,pContent,pCode,part.getSubmittedFileName(),null,cid,us.getIdl());
+		Posts p=new Posts(pTitle,pContent,pCode,null,null,cid,us.getIdl());
 		PostDao pd=new PostDao(ConHelp.getConnection());
 		if(pd.savePost(p)) {
 	      	
@@ -59,6 +59,7 @@ public class AddPostServlet extends HttpServlet {
 			//Helper.saveFie(part.getInputStream(),path);
 
 	      	out.println("updated successfully");
+	       response.sendRedirect("profile.jsp");
 		}else {
 			//out.println("error...........");
 		}

@@ -20,7 +20,7 @@ if (us1 == null) {
 <%
 int postId = Integer.parseInt(request.getParameter("post_id"));
 PostDao pd = new PostDao(ConHelp.getConnection());
-UserDao ud=new UserDao(ConHelp.getConnection());
+UserDao ud = new UserDao(ConHelp.getConnection());
 Posts p = pd.getPostById(postId);
 %>
 
@@ -36,31 +36,35 @@ Posts p = pd.getPostById(postId);
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-.post-content{
-	font-weight:100;
-	font-size:20px;
+.post-content {
+	font-weight: 100;
+	font-size: 20px;
 }
-.post-id{
 
-font-style:Italic;
+.post-id {
+	font-style: Italic;
 }
-.post-date{
- font-size:12px;
-}
-.row-user{
-border:1px solid #e2e2e2;
 
+.post-date {
+	font-size: 12px;
 }
-body{
-background:url(img/back3.jpeg);
-background-size:cover;
-background-attachmenet:fixed;
+
+.row-user {
+	border: 1px solid #e2e2e2;
+}
+
+body {
+	background: url(img/back3.jpeg);
+	background-size: cover;
+	background-attachmenet: fixed;
 }
 </style>
 <meta charset="ISO-8859-1">
 <title><%=p.getpTitle()%></title>
 <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v19.0" nonce="zH1Uxzb2"></script>
+<script async defer crossorigin="anonymous"
+	src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v19.0"
+	nonce="zH1Uxzb2"></script>
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light primary-background">
@@ -193,10 +197,15 @@ background-attachmenet:fixed;
 
 						<div class="row my-3 row-user">
 							<div class="col-md-6">
-								<p><a class="post-id" href=""><%=ud.getUserById(p.getUserId()).getName()%></a> Posted this on:</p>
+								<p>
+									<a class="post-id" href=""><%=ud.getUserById(p.getUserId()).getName()%></a>
+									Posted this on:
+								</p>
 							</div>
 							<div class="col-md-4">
-                               <p><a class="post-date"><%=DateFormat.getDateInstance().format(p.getpDate())%></a></p>
+								<p>
+									<a class="post-date"><%=DateFormat.getDateInstance().format(p.getpDate())%></a>
+								</p>
 							</div>
 
 
@@ -211,23 +220,22 @@ background-attachmenet:fixed;
 						</div>
 					</div>
 					<div class="card-footer bf-light text-center">
-						<% LikeDao ld = new LikeDao(ConHelp.getConnection()); %>
-						<a href="#!"
-							onclick="doLike(<%=p.getPid() %>, <%=us1.getIdl() %>)"
+						<%
+						LikeDao ld = new LikeDao(ConHelp.getConnection());
+						%>
+						<a href="#!" onclick="doLike(<%=p.getPid()%>, <%=us1.getIdl()%>)"
 							class="btn btn-outline-primary btn-sm"> <i
-							class="fa fa-thumbs-o-up"></i> <span class="like-count"><%= ld.countLike(p.getPid()) %></span>
-							
-						</a> <a href="#!" class="btn btn-outline-primary btn-sm"> <i
-							class="fa fa-commenting-o"></i> <span>20</span>
-						</a>
-				
+							class="fa fa-thumbs-o-up"></i> <span class="like-count"><%=ld.countLike(p.getPid())%></span></a>
 
-                  
-                    <div class="fb-comments" data-href="http://localhost:9192/TechBlog/show_blog.jsp?post_id=<%=p.getPid() %>" data-width="" data-numposts="5"></div>
-                    
-                    
-                    </div>
-                  
+			
+
+
+
+						
+
+
+					</div>
+
 
 				</div>
 

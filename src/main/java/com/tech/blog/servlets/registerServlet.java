@@ -32,7 +32,7 @@ public class registerServlet extends HttpServlet {
 		} else {
             String name=request.getParameter("uname");
             String email=request.getParameter("email");
-            String passward=request.getParameter("passward");
+            String passward=request.getParameter("password");
             String gender=request.getParameter("gender");
             String about=request.getParameter("about");
             

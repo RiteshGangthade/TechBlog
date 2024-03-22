@@ -38,8 +38,9 @@
 					internet of things (IoT), cloud computing, and much more. Stay
 					ahead of the curve and explore the endless possibilities that
 					technology offers with TechBlog.</p>
-				<button class="btn btn-outline-dark">Let's Start</button>
-				<a href="Login.jsp"  class="btn btn-outline-dark">Login</a>
+				<ul>
+			     <a href="register.jsp"  class="btn btn-outline-dark">Sign-up</a>
+				<a href="Login.jsp"  class="btn btn-outline-dark">Login</a></ul>
 			</div>
 
 		</div>
@@ -58,6 +59,8 @@
     <div class="col-md-4 my-3">
         <div class="card">
             <div class="card-body">
+            <img class="card-image-top" alt="Card image cap"
+							src="img/programming.jpeg" width=400>
                 <h5 class="card-title"><%= post.getpTitle() %></h5>
                 <p class="card-text"><%= post.getpContext() %></p>
                 <!-- Add any additional content you want to display for each post -->

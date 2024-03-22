@@ -27,7 +27,10 @@
 	%>
 	<div class="col-md-6 mt-3">
 		<div class="card">
+	
 			<div class="card-body">
+			<img class="card-image-top" alt="Card image cap"
+							src="img/programming.jpeg" >
 				<b><%=p.getpTitle()%></b>
 				<p><%=p.getpContext()%></p>
 			
@@ -36,17 +39,17 @@
 			<div class="card-footer bf-light text-center">
 			<% LikeDao ld = new LikeDao(ConHelp.getConnection());
 			%>
-						<a href="#!"
-							onclick="doLike(<%=p.getPid() %>, <%=us1.getIdl() %>)"
-							class="btn btn-outline-primary btn-sm"> <i
-							class="fa fa-thumbs-o-up"></i> <span class="like-count"><%= ld.countLike(p.getPid()) %></span>
+						<button href="#!"
 							
-						</a>
+							class="btn btn-outline-primary btn-sm"> <i
+							class="fa fa-thumbs-o-up"></i> <span><%= ld.countLike(p.getPid()) %></span>
+							
+						</button>
 			
 			
 			
 			
-			<a href="#!" class="btn btn-outline-primary btn-sm"><i class="fa fa-commenting-o"><span>20</span></i></a>
+			
 			<a href="show_blog.jsp?post_id=<%=p.getPid() %>" class="btn btn-outline-primary btn-sm">Read more</a>
 			
 			</div>

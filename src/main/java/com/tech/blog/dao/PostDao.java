@@ -43,15 +43,15 @@ public class PostDao {
 	public boolean savePost(Posts p) {
 		boolean f = false;
 		try {
-			String query = "insert into posts(pTitle,pContext,pCode,pPic,cid,userId) values(?,?,?,?,?,?)";
+			String query = "insert into posts(pTitle,pContext,pCode,cid,userId) values(?,?,?,?,?)";
 			PreparedStatement pt = con.prepareStatement(query);
 
 			pt.setString(1, p.getpTitle());
 			pt.setString(2, p.getpContext());
 			pt.setString(3, p.getpCode());
-			pt.setString(4, p.getpPic());
-			pt.setInt(5, p.getCid());
-			pt.setInt(6, p.getUserId());
+			//pt.setString(4, p.getpPic());
+			pt.setInt(4, p.getCid());
+			pt.setInt(5, p.getUserId());
 
 			pt.executeUpdate();
 
@@ -67,7 +67,7 @@ public class PostDao {
 	public List<Posts> getAllPost() {
 		List list = new ArrayList<>();
 		try {
-			PreparedStatement ps = con.prepareStatement("select * from posts");
+			PreparedStatement ps = con.prepareStatement("select * from posts order by pDate desc;");
 			ResultSet set = ps.executeQuery();
 			while (set.next()) {
 				int pid = set.getInt("pid");

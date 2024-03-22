@@ -124,11 +124,7 @@ if (us1 == null) {
 										placeholder="Enter the coding part(if aplicable))"
 										class="form-control"></textarea>
 
-								</div>
-								<div class="form-control">
-									<p>select picture if you want to add</p>
-									<input type="file" class="form-control" name="image">
-								</div>
+								
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary"
@@ -371,7 +367,7 @@ if (us1 == null) {
 
 			let editstatus = false;
 
-			$('#edit-p-btn').click(function() {
+			$("#edit-p-btn").click(function() {
 				if (editstatus == false) {
 					$("#profile-details").hide()
 					$("#profile-edit").show()
@@ -393,7 +389,10 @@ if (us1 == null) {
 
 
 	<script>
+	    $console.log("hiiiii");
+	    
 		$(document).ready(function(e) {
+			
 
 			$("#do-post-form").on("submit", function(event) {
 
